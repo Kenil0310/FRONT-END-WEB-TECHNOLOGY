@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                studentList =
+            [
+                { studentName: "Kenil Togadiya", studentImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY2OfwmS2bIeSMUT_DnrlEfRIDAARXIsxGtcwuXbmeWA&s=10" },
+                { studentName: "Bhavy Hirapara", studentImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpf4GXWBxZE2z3tXH44xOvHW9GCkupM2scCI72HbPLlA&s=10" },
+                { studentName: "Krish sanghani", studentImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTRy7MB_-TBwZmcz_yrNFBPMLWi1OyRj_-v5REa7QrTg&s=10" }
+            ]
+
+        for (i = 0; i < studentList.length; i++) {
+            document.write("student Name : " + studentList[i].studentName + "</br>")
+            document.write(`<img src=${studentList[i].studentImage} alt="not found"/>` + "</br>");
+        }
+    </script>
+</body>
+</html>
