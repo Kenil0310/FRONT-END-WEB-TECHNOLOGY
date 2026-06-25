@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 
 <body>
@@ -20,8 +21,14 @@
             ]
 
         for (i = 0; i < facultyList.length; i++) {
-            document.write("Faculty Name : " + facultyList[i].facultyName + "</br>")
-            document.write(`<img src=${facultyList[i].facultyImage} alt="not found"/>` + "</br>");
+            document.write(`<img src=${facultyList[i].facultyImage} alt="not found" 
+            width="200" 
+            style= "border:2px solid black;
+            border-radius:10px;
+            padding:5px;
+            margin:10px;
+            "/>` + "</br>");
+            document.write(`<h3 style = "font-size:20px"> Faculty Name : ${facultyList[i].facultyName}</h3>` );
         }
     </script>
 </body>

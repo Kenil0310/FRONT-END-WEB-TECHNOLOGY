@@ -1,23 +1,110 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-            productList =
-            [
-                { productName: "Deep Pore Clarifying Foaming Face Wash ", productImage: "https://m.media-amazon.com/images/I/31nH5aS5oRL._SY300_SX300_QL70_FMwebp_.jpg" },
-                { productName: "USB Universal Travel Adapter", productImage: "https://m.media-amazon.com/images/I/41uGjvXbeBL._SY300_SX300_QL70_FMwebp_.jpg" },
-                { productName: " Universal Mobile Holder", productImage: "https://m.media-amazon.com/images/I/41G1BcBFZoL._SY300_SX300_QL70_FMwebp_.jpg" }
-            ]
+    <title>Product List</title>
 
-        for (i = 0; i < productList.length; i++) {
-            document.write("student Name : " + productList[i].productName + "</br>")
-            document.write(`<img src=${productList[i].productImage} alt="not found"/>` + "</br>");
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
         }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 40px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            width: 250px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            color: #2f2e2e;
+        }
+
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Product List</h1>
+
+    <div id="container" class="container"></div>
+
+    <script>
+
+        let productList = [
+            {
+                productName: "Deep Pore Clarifying Foaming Face Wash", productImage: "https://m.media-amazon.com/images/I/31nH5aS5oRL._SY300_SX300_QL70_FMwebp_.jpg"
+            },
+            {
+                productName: "USB Universal Travel Adapter", productImage: "https://m.media-amazon.com/images/I/41uGjvXbeBL._SY300_SX300_QL70_FMwebp_.jpg"
+            },
+            {
+                productName: "Universal Mobile Holder", productImage: "https://m.media-amazon.com/images/I/41G1BcBFZoL._SY300_SX300_QL70_FMwebp_.jpg"
+            }
+        ];
+
+        let output = "";
+
+        for (let i = 0; i < productList.length; i++)
+        {
+            output += `
+                    <div class="card">
+                        <img src="${productList[i].productImage}" alt="Product">
+                        <h3>${productList[i].productName}</h3>
+                        <button class="btn"> View Product</button>
+                    </div>
+                    `;
+            document.getElementById("container").innerHTML = output;
+        }
+
+
     </script>
+
 </body>
+
 </html>

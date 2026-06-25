@@ -1,23 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            text-align: center;
+        }
+
+        .container {
+            display:flex;
+            justify-content:center;
+            gap: 30px;
+        }
+
+        .card {
+            width: 250px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 4px rgb(47, 46, 46);
+            padding: 15px;
+            transition: 0.50s;
+        }
+
+        .card:hover {
+            transform:scale(1.2);
+        }
+
+        .card img{
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid blue;
+        }
+
+        .card h3 {
+            color: rgb(61, 61, 61);
+        }
+    </style>
 </head>
+
 <body>
+    <h1>Student List</h1>
+
+    <div id="container" class="container"></div>
+
     <script>
-                studentList =
+        let studentList =
             [
                 { studentName: "Kenil Togadiya", studentImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY2OfwmS2bIeSMUT_DnrlEfRIDAARXIsxGtcwuXbmeWA&s=10" },
                 { studentName: "Bhavy Hirapara", studentImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpf4GXWBxZE2z3tXH44xOvHW9GCkupM2scCI72HbPLlA&s=10" },
-                { studentName: "Krish sanghani", studentImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTRy7MB_-TBwZmcz_yrNFBPMLWi1OyRj_-v5REa7QrTg&s=10" }
+                { studentName: "Krisha sanghani", studentImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTRy7MB_-TBwZmcz_yrNFBPMLWi1OyRj_-v5REa7QrTg&s=10" }
             ]
 
-        for (i = 0; i < studentList.length; i++) {
-            document.write("student Name : " + studentList[i].studentName + "</br>")
-            document.write(`<img src=${studentList[i].studentImage} alt="not found"/>` + "</br>");
+        let output = "";
+
+        for (let i = 0; i < studentList.length; i++)
+        {
+            output += `
+                        <div class="card">
+                        <img src="${studentList[i].studentImage}">
+                        <h3>${studentList[i].studentName}</h3>
+                        </div>`;
+                        document.getElementById("container").innerHTML = output;
         }
     </script>
 </body>
+
 </html>
