@@ -7,20 +7,29 @@
 </head>
 <body>
     <script>
-        arr = [10, 20, 30, 40];
+        arr = [10, 20, 30, 40, 50];
 
-        pop = arr.pop();
-        document.write("Add Element at first position : " + arr + "</br>");
-
-        push = arr.push(60);
+        arr.unshift(5);
+        document.write("Add Element at first position : " + arr  + "</br>");
+        
+        arr.push(60);
         document.write("Add Element at last position : " + arr + "</br>");
-
-        unshift = arr.unshift();
-        document.write("Delete Element at last position : " + arr  + "</br>");
-
-        shift = arr.shift();
+        
+        arr.shift();
         document.write("Delete Element at first position : " + arr  + "</br>");
+        
+        arr.pop();
+        document.write("Delete Element at last position : " + arr + "</br>");
 
+        arr.splice(2, 0, 25);
+        document.write("Add Element at 2nd position : " + arr + "</br>");
+
+        arr.splice(2, 1);
+        document.write("Delete Element at 2nd position : " + arr + "</br>");
+
+        arr.splice(1, 2, 15, 35);
+        document.write("Replace Element at 1st and 2nd position : " + arr + "</br>");
+        
     </script>
 </body>
 </html>
