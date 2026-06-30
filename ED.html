@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script>
+
+        let original = "JavaScript is powerful language";
+
+        let encrypted1 = btoa(original);
+
+        let decrypted1 = atob(encrypted1);//decode 
+
+        document.write("Original String: " + original + "<br>");
+        document.write("Encrypted String: " + encrypted1 + "<br>");
+        document.write("Decrypted String: " + decrypted1);
+
+    </script>
+</body>
+
+</html>
