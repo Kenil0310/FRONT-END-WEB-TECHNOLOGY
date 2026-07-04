@@ -1,46 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration form</title>
+    <style>
+        body
+        {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        h2
+        {
+            margin: 20px;
+            text-align: center;
+            font-size: 30px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .container
+        {
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        label
+        {
+            display: inline-block;
+            width: 200px;
+            font-weight: bold;
+        }
+        input
+        {
+            width: 220px;
+            padding: 6px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        button
+        {
+            width: 50%;
+            padding: 10px;
+            margin-top: 70px;
+            margin-left: 120px;
+            background: royalblue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        button:hover
+        {
+            background: blue;
+        }
+    </style>
+
 </head>
-
 <body>
-    <form>
-        <div>
-            <label>Full Name</label>
-            <input type="text" placeholder="Enter the name" id="name" />
-        </div>
-        <br>
+    <div class="container">
+        <h2>Registration Form</h2>
 
-        <div>
-            <label>Enter Password</label>
-            <input type="password" placeholder="Enter the password" id="pass" />
-        </div>
-        <br>
+        <form onsubmit="return validForm()">
+            <div>
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter the name" id="username" />
+            </div>
+            <br>
+            
+            <div>
+                <label>Password</label>
+                <input type="password" placeholder="Enter the password" id="pass" />
+            </div>
+            <br>
+            
+            <div>
+                <label>Conform Password</label>
+                <input type="password" placeholder="Enter the password" id="repatpass" />
+            </div>
+            <br>
+            
+            <div>
+                <label>Age</label>
+                <input type="date" placeholder="Enter the Age" id="age" />
+            </div>
+            <br>
+            
+            <div>
+                <label>Enrollment No. </label>
+                <input type="number" placeholder="Enter the Enrollment number" id="eid" />
+            </div>
+            <br>
+            
+            <div>
+                <label>Email</label>
+                <input type="email" placeholder="Enter the E-mail" id="email" />
+            </div>
+            <br>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
-        <div>
-            <label>Conform Password</label>
-            <input type="password" placeholder="Enter the password" id="pass" />
-        </div>
-        <br>
+    <script>
+        function validForm()
+        {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("pass").value;
+            let confPass = document.getElementById("repatpass").value;
+            let enrollment = document.getElementById("eid").value;
+            let email = document.getElementById("email").value;
+            
+            userPattern = "\\w{8,}";
+            userP = new RegExp(userPattern);
+            
+            passwordPattern = "^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,12}$";
+            passP = new RegExp(passwordPattern);
+            
+            enPattern = "^\\d{11}$";
+            enrollmentP = new RegExp(enPattern);
+            
+            emailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+            emailP = new RegExp(emailPattern);
+            
+            let age = document.getElementById("age").value;
+    
+            let birthDate = new Date(age);
+            let today = new Date();
 
-        <div>
-            <label>Enter Age</label>
-            <input type="number" placeholder="Enter the Age" id="age" />
-        </div>
+            let Age = today.getFullYear() - birthDate.getFullYear();
 
-        <div>
-            <label>Enter Enrollment number </label>
-            <input type="number" placeholder="Enter the Enrollment number" id="eid" />
-        </div>
+            if(today.getMonth() < birthDate.getMonth() ||
+            (today.getMonth() == birthDate.getMonth() &&
+                today.getDate() < birthDate.getDate())
+            ){
+                Age--;
+            }
 
-        <div>
-            <label>Enter Email</label>
-            <input type="email" placeholder="Enter the E-mail" id="email" />
-        </div>
-
-        <input type="submit" placeholder="Submit">
-    </form>
+            if(!userP.test(username))
+            {
+                alert("Invalid Username");
+            }
+            else if(!passP.test(password))
+            {
+                alert("Invalid Password");
+            }
+            else if(password.value != confPass.value)
+            {
+                alert("Password and Confirm Password do not match");
+            }
+            else if(Age < 18)
+            {
+                alert("Your age is invalid.");
+            }
+            else if(!enrollmentP.test(enrollment))
+            {
+                alert("Enter a valid Enrollment number");
+            }
+            else if(!emailP.test(email))
+            {
+                alert("Enter a valid Email id");
+            }
+            else
+            {
+                alert("Your Form is Submitted Successfully");
+            }
+        }
+    </script>
 
 </body>
 
