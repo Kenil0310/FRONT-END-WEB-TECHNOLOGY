@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        fruits = ["banana", "graphs", "apple"];
+
+        //for of loop used in loop
+        for (const i of fruits) {
+            document.write("Fruits : " + i + "</br>");
+        }
+        document.write("</br>");
+        
+        //for in loop (return)
+        for (const i in fruits) {
+            document.write("Index : " + fruits[i] + "</br>");
+        }
+        document.write("</br>");
+        
+        student = [
+           {name: "kenil",
+            roll: 444,
+            city: 'rajkot',
+            department: 'computer science'}
+    ];
+
+        for (const i of student) {
+            const {name,roll} = i
+            document.write(" " + name + "</br>");
+        }
+
+    </script>
+</body>
+
+</html>

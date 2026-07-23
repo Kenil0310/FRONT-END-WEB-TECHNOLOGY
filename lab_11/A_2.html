@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        student1 = {
+            name : "kenil",
+            roll_no : 444,
+            city : "Rajkot",
+            address : "satellite Chowk",
+            pincode : 360003
+        };
+
+        //student2 = student1;
+        student2 = {...student1};
+
+        //console.log(student2.name = "kenil");
+        console.log(student2.name = "Togadiya");
+        console.log(student2);
+
+
+        //Spread Operator use in array 
+
+        const arr = [1, 2, 3, 4, 5];
+
+        newArray = [...arr,6, 7, 8, 9, 10];
+
+        console.log(newArray);
+
+
+        //Rest Operator used in object
+
+        let employee1 = {
+            name : "kenil",
+            age : 17,
+            gender : 'Male',
+            address : 'Satellite Chowk',
+        };
+
+        let {name,age,...otherPro} = employee1;
+
+        console.log("Name : " + name);
+        console.log("age : " + age);
+        console.log(otherPro);
+
+        </script>
+</body>
+</html>
