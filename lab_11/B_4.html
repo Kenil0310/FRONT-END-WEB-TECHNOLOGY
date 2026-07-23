@@ -14,11 +14,11 @@
             city : 'rajkot' 
         };
 
-        let {name,roll,...student} = student;
+        let {name,roll,...otherPro} = student;
 
-        document.write("Name : " + name);
-        document.write("Roll number  : " + roll);
-        document.write(student);
+        document.write("Name : " + name + "</br>");
+        document.write("Roll number  : " + roll + "</br>");
+        document.write("Other Properties : " + JSON.stringify(otherPro));
 
     </script>
 </body>
